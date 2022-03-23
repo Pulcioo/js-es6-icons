@@ -149,6 +149,6 @@ function creoBox(elemento) {
     // assegno una classe
     box.className = 'box-icon';
     // modifico HTML
-    box.innerHTML = `<i class="${elemento.family} ${elemento.prefix}${elemento.name} fa-3x"></i>
+    box.innerHTML = `<i class="${elemento.family} ${elemento.prefix}${elemento.name} ${elemento.color} fa-3x"></i>
 	<p class="text">${elemento.name}</p>`
 }
