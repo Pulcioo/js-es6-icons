@@ -137,7 +137,7 @@ const containerIcon = document.querySelector('.container-icon');
 
 // ciclo array
 icons.forEach((icons, index, array) => {
-    creoBox(icons)
+    creoBox(icons);
 });
 
 // funzione per creare box che contiene icon
@@ -152,3 +152,18 @@ function creoBox(elemento) {
     box.innerHTML = `<i class="${elemento.family} ${elemento.prefix}${elemento.name} ${elemento.color} fa-3x"></i>
 	<p class="text">${elemento.name}</p>`
 }
+
+// funzione per filtrare elementi in base al type
+const filterByType = (type) => {
+    return icons.filter(icon => icon.type === type);
+}
+
+// icon di tipo animali
+const animals = filterByType('animal')
+console.log(animals)
+// icon di tipo vegetali
+const vegetables = filterByType('vegetable')
+console.log(vegetables)
+// icon di tipo utenti
+const users = filterByType('user')
+console.log(users)
