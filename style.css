@@ -36,7 +36,8 @@ h1{
     background-color: lightgray;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    align-content: flex-start;
+    padding-left: 60px;
 }
 
 .box-icon{

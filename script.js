@@ -135,10 +135,57 @@ const icons = [
 // seleziono tramite query selector la classe .container-icon
 const containerIcon = document.querySelector('.container-icon');
 
+
+
+
 // ciclo array
 icons.forEach((icons, index, array) => {
     creoBox(icons);
 });
+
+
+
+// Quando l'utente seleziona un tipo dalla select, 
+// visualizzare solamente le icone corrispondenti.
+
+//recupero il select dall'HTML
+const select = document.getElementById('type');
+
+//aggiungo evento change al select
+select.addEventListener('change', (event) => {
+    //reset container icone
+    containerIcon.innerHTML = '';
+
+    if (event.target.value === 'animals') {
+        icons.filter((elemento) => {
+
+            if (elemento.type === 'animal') {
+                creoBox(elemento);
+            }
+        })
+    } else if (event.target.value === 'vegetables') {
+        icons.filter((elemento) => {
+
+            if (elemento.type === 'vegetable') {
+                creoBox(elemento);
+            }
+        })
+    } else if (event.target.value === 'users') {
+        icons.filter((elemento) => {
+
+            if (elemento.type === 'user') {
+                creoBox(elemento);
+            }
+        })
+    } else if (event.target.value === 'all') {
+        icons.forEach((elemento) => {
+            creoBox(elemento);
+        })
+    }
+})
+
+
+
 
 // funzione per creare box che contiene icon
 function creoBox(elemento) {
@@ -152,18 +199,3 @@ function creoBox(elemento) {
     box.innerHTML = `<i class="${elemento.family} ${elemento.prefix}${elemento.name} ${elemento.color} fa-3x"></i>
 	<p class="text">${elemento.name}</p>`
 }
-
-// funzione per filtrare elementi in base al type
-const filterByType = (type) => {
-    return icons.filter(icon => icon.type === type);
-}
-
-// icon di tipo animali
-const animals = filterByType('animal')
-console.log(animals)
-// icon di tipo vegetali
-const vegetables = filterByType('vegetable')
-console.log(vegetables)
-// icon di tipo utenti
-const users = filterByType('user')
-console.log(users)
